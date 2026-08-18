@@ -1,0 +1,19 @@
+[formatter.nix]
+command = "nixfmt"
+options = ["--"]
+includes = ["*.nix"]
+
+[formatter.toml]
+command = "taplo"
+options = ["format", "--"]
+includes = ["*.toml"]
+
+[formatter.markdown]
+command = "prettier"
+options = ["--parser", "markdown", "--write", "--"]
+includes = ["*.md"]
+
+[formatter.go]
+command = "gofmt"
+options = ["-w", "--"]
+includes = ["*.go"]
