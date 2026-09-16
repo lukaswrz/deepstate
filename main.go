@@ -41,9 +41,9 @@ func main() {
 	}
 
 	app := &cli.Command{
-		Name:        "deepstate",
-		Version:     bi.Module.Version,
-		Description: "Scan for leftovers",
+		Name:    "deepstate",
+		Version: bi.Module.Version,
+		Usage:   "scan for leftovers",
 		Flags: []cli.Flag{
 			&cli.BoolFlag{
 				Name:        "verbose",
