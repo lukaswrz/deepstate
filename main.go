@@ -72,8 +72,15 @@ func main() {
 				Destination: &noDefaultExclude,
 			},
 		},
+		Arguments: []cli.Argument{
+			&cli.StringArgs{
+				Name: "root",
+				Min:  0,
+				Max:  -1,
+			},
+		},
 		Action: func(ctx context.Context, cmd *cli.Command) error {
-			roots := cmd.Args().Slice()
+			roots := cmd.StringArgs("root")
 			if len(roots) == 0 {
 				roots = append(roots, ".")
 			}
