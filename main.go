@@ -26,6 +26,7 @@ func main() {
 		excludes         []string
 		defaultExcludes  []string
 		noDefaultExclude bool
+		roots            []string
 	)
 
 	cli.VersionPrinter = func(cmd *cli.Command) {
@@ -74,13 +75,13 @@ func main() {
 		},
 		Arguments: []cli.Argument{
 			&cli.StringArgs{
-				Name: "root",
-				Min:  0,
-				Max:  -1,
+				Name:        "root",
+				Min:         0,
+				Max:         -1,
+				Destination: &roots,
 			},
 		},
 		Action: func(ctx context.Context, cmd *cli.Command) error {
-			roots := cmd.StringArgs("root")
 			if len(roots) == 0 {
 				roots = append(roots, ".")
 			}
